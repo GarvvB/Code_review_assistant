@@ -45,7 +45,6 @@ code_review_assistant/
 Open PowerShell and run from the `project` folder:
 
 ```powershell
-cd 'c:\Users\Admin\OneDrive\Documents\Coding_2025\project-bolt-sb1-wyhaally\code_review_assistant\project'
 npm install
 ```
 
