@@ -1,99 +1,146 @@
-# Code_review_assistant
+# Code Review Assistant
 
-Automated Code Review Assistant — a Vite + React + TypeScript frontend that lets users upload source files and receive automated analysis (readability, modularity, potential bugs, suggestions) powered by local analysis logic and AI-friendly output structures.
+> An intelligent, automated code review tool that helps developers write better code through instant analysis and actionable feedback.
 
-This repository contains a small single-page app located under the `project/` folder. It was scaffolded with Vite + React + TypeScript and enhanced with Tailwind CSS.
+## Overview
 
-## Highlights
+Code Review Assistant is a modern web application that analyzes your source code files and provides comprehensive reviews with actionable suggestions. Built with React and TypeScript, it offers a seamless experience for developers looking to improve code quality without the overhead of manual reviews.
 
-- UI built with React + TypeScript
-- Vite for fast dev server and builds
-- Tailwind CSS for styling
-- Uses `@supabase/supabase-js` and `lucide-react` (icons)
-- Simple file upload flow that analyzes code and produces a review report
+<img width="1391" height="627" alt="image" src="https://github.com/user-attachments/assets/a3a6aa5e-e53d-489d-830e-8e40bef7b8eb" />
+<img width="1391" height="739" alt="image" src="https://github.com/user-attachments/assets/6e6d6ae2-913e-4607-a0da-2c6a3ab943d7" />
+<img width="1419" height="911" alt="image" src="https://github.com/user-attachments/assets/d04c0a55-769d-4458-8896-1c0394cc3369" />
 
-## Quick features
+## Features
 
-- Upload a source file and detect language
-- Run lightweight analysis (see `src/services/codeAnalyzer.ts`) to produce a `ReviewReport`
-- Review history and per-file suggestions
+- **Intelligent File Upload** - Drag and drop or select files for instant analysis
+- **Automatic Language Detection** - Supports multiple programming languages with smart detection
+- **Comprehensive Code Analysis** - Evaluates readability, modularity, and potential bugs
+- **Detailed Review Reports** - Get structured feedback with specific suggestions
+- **Review History** - Track and revisit previous code reviews
+- **Fast & Lightweight** - Client-side analysis for instant results
 
-## Project structure (top-level)
+## Tech Stack
 
+- **Frontend Framework**: React 18 with TypeScript
+- **Build Tool**: Vite for lightning-fast development
+- **Styling**: Tailwind CSS for modern, responsive design
+- **Icons**: Lucide React for beautiful, consistent iconography
+- **Database**: Supabase for data persistence
+
+## Getting Started
+
+### Prerequisites
+
+- Node.js 18 or higher
+- npm or yarn package manager
+
+### Installation
+
+1. Clone the repository:
+```bash
+git clone https://github.com/GarvvB/Code_review_assistant.git
+cd Code_review_assistant/project
 ```
-code_review_assistant/
-  project/
-    index.html
-    package.json
-    src/
-      App.tsx
-      main.tsx
-      components/
-      services/
-      utils/
-    tsconfig.json
-    tailwind.config.js
-```
 
-## Prerequisites
-
-- Node.js 18+ (recommended) installed on your machine
-- npm (bundled with Node.js)
-
-## Install dependencies (PowerShell)
-
-Open PowerShell and run from the `project` folder:
-
-```powershell
+2. Install dependencies:
+```bash
 npm install
 ```
 
-If you prefer `pnpm` or `yarn`, you can use them, but this README uses npm.
+3. Set up environment variables:
+   - Copy `.env.example` to `.env` if available
+   - Configure Supabase credentials if using database features
 
-## Development server
-
-Start the Vite dev server:
-
-```powershell
+4. Start the development server:
+```bash
 npm run dev
 ```
 
-Open the URL printed by Vite (usually http://localhost:5173) in your browser.
+The application will be available at `http://localhost:5173`
 
-## Production build
+### Build for Production
 
-```powershell
+```bash
 npm run build
 npm run preview
 ```
 
-`npm run build` creates a production build in `dist/`. `npm run preview` serves the built files locally.
+## Usage
 
-## Scripts (from package.json)
+1. **Upload Code Files** - Click the upload area or drag and drop your source files
+2. **Automatic Analysis** - The system detects the programming language and analyzes your code
+3. **Review Results** - View detailed feedback including:
+   - Code readability scores
+   - Modularity assessment
+   - Potential bug warnings
+   - Improvement suggestions
+4. **Export Reports** - Save or share review reports for future reference
+5. **Track History** - Access previous reviews from your history dashboard
 
-- `dev` — start Vite dev server
-- `build` — build for production
-- `preview` — preview production build
-- `lint` — run ESLint
-- `typecheck` — TypeScript type check
+## Project Structure
 
-## Notes on implementation
+```
+project/
+├── src/
+│   ├── App.tsx              # Main application component
+│   ├── main.tsx             # Application entry point
+│   ├── components/          # React components
+│   ├── services/            # Business logic and API services
+│   │   └── codeAnalyzer.ts  # Core analysis logic
+│   └── utils/               # Utility functions
+│       └── fileUtils.ts     # File handling and language detection
+├── public/                  # Static assets
+├── index.html              # HTML template
+├── package.json            # Dependencies and scripts
+├── tailwind.config.js      # Tailwind configuration
+├── tsconfig.json           # TypeScript configuration
+└── vite.config.ts          # Vite configuration
+```
 
-- UI: `src/App.tsx` implements the upload/analyze flow and coordinates `FileUpload`, `CodePreview`, `ReviewReport`, and `ReviewHistory` components.
-- Analysis: `src/services/codeAnalyzer.ts` contains the analysis logic. It currently runs locally and returns a `report` and `suggestions` structure consumed by the UI.
-- Utilities: `src/utils/fileUtils.ts` contains language detection helpers.
+## Development Scripts
 
-## Recommended next steps
+- `npm run dev` - Start development server with hot reload
+- `npm run build` - Build production bundle
+- `npm run preview` - Preview production build locally
+- `npm run lint` - Run ESLint for code quality
+- `npm run typecheck` - Run TypeScript type checking
 
-- Add unit tests for `codeAnalyzer` and `fileUtils`.
-- Improve error handling and UX for very large files.
-- Add a backend integration for heavy analysis or to centralize results.
-- Add CI with GitHub Actions for lint/typecheck and build previews.
+## Roadmap
+
+- [ ] Enhanced analysis with AI-powered suggestions
+- [ ] Support for more programming languages
+- [ ] Integration with GitHub for PR reviews
+- [ ] Team collaboration features
+- [ ] Custom rule configuration
+- [ ] IDE extensions (VS Code, IntelliJ)
+- [ ] CI/CD pipeline integration
+- [ ] Unit and integration tests
 
 ## Contributing
 
-If you'd like the files moved to the repo root (instead of `project/`), or you'd like a separate branch/PR for the README, tell me and I can change it.
+Contributions are welcome! Please feel free to submit a Pull Request. For major changes, please open an issue first to discuss what you would like to change.
+
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
 
 ## License
 
-Add your license here (MIT/Apache/Proprietary...).
+This project is open source and available under the MIT License.
+
+## Support
+
+If you encounter any issues or have questions:
+- Open an issue on GitHub
+- Check existing issues for solutions
+- Review the documentation
+
+## Acknowledgments
+
+Built with modern web technologies and a passion for code quality. Special thanks to the open-source community for the amazing tools and libraries that made this project possible.
+
+---
+
+Made with ❤️ by developers, for developers
